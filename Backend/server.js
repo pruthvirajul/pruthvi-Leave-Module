@@ -7,9 +7,9 @@ const port = 3000;
 // PostgreSQL database configuration
 const pool = new Pool({
     user: 'postgres', // Replace with your PostgreSQL username
-    host: 'localhost',
+    host: 'postgres',
     database: 'leave_management',
-    password: 'root', // Replace with your PostgreSQL password
+    password: 'admin321', // Replace with your PostgreSQL password
     port: 5432,
 });
 
@@ -138,5 +138,5 @@ app.delete('/api/leave-requests', async (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+    console.log(`Server running at http://51.21.182.25:${port}`);
 });
