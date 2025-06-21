@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:14
+    container_name: leave-postgres
+    ports:
+      - "5654:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin321
+      POSTGRES_DB: leave_management
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  backend:
+    build: ./Backend
+    container_name: leave-backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    environment:
+      DB_HOST: postgres
+    volumes:
+      - ./Backend:/app
+
+  employee-leave:
+    build: ./Employee-leave
+    container_name: employee-leave
+    ports:
+      - "6035:80"
+    depends_on:
+      - backend
+
+  hr-leave:
+    build: ./HR-leave
+    container_name: hr-leave
+    ports:
+      - "6036:80"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
+
