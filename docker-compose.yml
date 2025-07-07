@@ -17,7 +17,7 @@ services:
     build: ./Backend
     container_name: leave-backend
     ports:
-      - "3000:3000"
+      - "3102:3102"
     depends_on:
       - postgres
     environment:
