@@ -17,7 +17,7 @@ services:
     build: ./Backend
     container_name: leave-backend
     ports:
-      - "3202:3202"
+      - "3208:3208"
     depends_on:
       - postgres
     environment:
@@ -29,7 +29,7 @@ services:
     build: ./Employee-leave
     container_name: employee-leave
     ports:
-      - "8004:80"
+      - "8016:80"
     depends_on:
       - backend
 
@@ -37,7 +37,7 @@ services:
     build: ./HR-leave
     container_name: hr-leave
     ports:
-      - "8005:80"
+      - "8017:80"
     depends_on:
       - backend
 
