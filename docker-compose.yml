@@ -29,7 +29,7 @@ services:
     build: ./Employee-leave
     container_name: employee-leave
     ports:
-      - "8416:80"
+      - "8418:80"
     depends_on:
       - backend
 
@@ -37,7 +37,7 @@ services:
     build: ./HR-leave
     container_name: hr-leave
     ports:
-      - "8417:80"
+      - "8419:80"
     depends_on:
       - backend
 
